@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import AllQuotes from "./pages/AllQuotes";
@@ -12,6 +12,7 @@ const NewQuote = React.lazy(() => import('./pages/NewQuote'));
 function App() {
   return (
     <Layout>
+      <Sespense>
       <Switch>
         <Route path="/" exact>
           <Redirect to="/quotes" />
@@ -30,6 +31,7 @@ function App() {
           <NotFound />
         </Route>
       </Switch>
+      </Sespense>
     </Layout>
   );
 }
