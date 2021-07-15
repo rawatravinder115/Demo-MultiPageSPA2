@@ -6,13 +6,18 @@ import QuoteDetail from "./pages/QuoteDetail";
 // import NewQuote from "./pages/NewQuote";
 import Layout from "./components/layout/Layout";
 import NotFound from "./pages/NotFound";
+import LoadingSpinner from './components/UI/LoadingSpinner';
 
 const NewQuote = React.lazy(() => import('./pages/NewQuote'));
 
 function App() {
   return (
     <Layout>
-      <Sespense>
+      <Sespense fallback={
+        <div className='centered'>
+          <LoadingSpinner/>
+        </div>
+      } >
       <Switch>
         <Route path="/" exact>
           <Redirect to="/quotes" />
